@@ -1,15 +1,15 @@
-import { languages, level, mode, exchanges } from "js/datos.js"
-import { fillSelect } from "js/utils.js"
+import { languages, level, modality, exchanges } from "./datos.js"
+import { fillSelect } from "./utils.js"
 
 const languageSelect = document.querySelector("#language-filter")
-const levelSelect = document.querySelector("#difficult-filter")
-const modeSelect = document.querySelector("#mode-filter")
+const levelSelect = document.querySelector("#level-filter")
+const modeSelect = document.querySelector("#modality-filter")
 const cardTemplate = document.querySelector("#card-template")
 const cardList = document.querySelector("#card-list")
 
 fillSelect(languageSelect, languages)
 fillSelect(levelSelect, level)
-fillSelect(modeSelect, mode)
+fillSelect(modeSelect, modality)
 
 function createCard(exchange) {
 	const card = cardTemplate.content.cloneNode(true)
