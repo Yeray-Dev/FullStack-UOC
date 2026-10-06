@@ -1,0 +1,18 @@
+# Ignorar todo por defecto
+*
+
+# Permitir entrar en las carpetas (si no, Git no mira dentro)
+!*/
+
+# Ficheros permitidos
+!*.html
+!*.css
+!*.js
+!.gitignore
+!README.md
+
+# Descomentar si añades imágenes o iconos al proyecto
+# !*.svg
+# !*.png
+# !*.jpg
+# !*.webp
