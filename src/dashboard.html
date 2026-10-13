@@ -9,33 +9,64 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
 	<link href="../css/base.css" rel="stylesheet">
 	<link href="../css/dashboard.css" rel="stylesheet">
 	<script type="module" src="../js/dashboard.js"></script>
 </head>
 <body>
-	<header>
-		<a href=""><img src="" alt="">Tándem</a>
-		<nav>
-			<ul>
-				<li><a href="" aria-current="page">Tablón</a></li>
-				<li><a href="">Intercambios</a></li>
-				<li><a href="">Usuarios</a></li>
-			</ul>
-		</nav>
-		<div>
-			<span>Correo</span>
-			<button type="button">Salir</button>
+	<header class="navbar navbar-expand-lg sticky-top bg-white border-bottom">
+		<div class="container-fluid px-4">
+			<a class="navbar-brand d-flex align-items-center  gap-2" href="dashboard.html">
+				<img src="../media/logo.svg" alt="" width="28" height="28">
+				Tándem
+			</a>
+			<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse"
+					data-bs-target="#mainMenu"
+					aria-controls="mainMenu"
+					aria-expanded="false"
+					aria-label="Abrir menu">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div id="mainMenu" class="collapse navbar-collapse">
+				<nav class="ms-lg-5">
+					<ul class="navbar-nav gap-lg-3">
+						<li class="nav-item"><a class="nav-link" href="" aria-current="page">
+							<i class="bi bi-grid-1x2" aria-hidden="true"></i>
+								Tablón
+							</a></li>
+						<li class="nav-item"><a class="nav-link" href="">
+							<i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+								Intercambios
+							</a></li>
+						<li class="nav-item"><a class="nav-link" href="">
+							<i class="bi bi-people" aria-hidden="true"></i>
+								Usuarios
+							</a></li>
+					</ul>
+				</nav>
+				<div class="d-flex ms-lg-auto align-items-center gap-lg-3">
+					<span class="d-flex border rounded-5 shadow-sm p-2">
+						<span class="p-1 bg-black text-white rounded-circle">LM</span>
+						<span class="p-1 small">lucia.martin@uni.es</span>
+					</span>
+					<button class="btn btn-logout" type="button">
+						<i class="bi bi-box-arrow-right" aria-hidden="true"></i>
+							Salir
+						</button>
+				</div>
+			</div>
 		</div>
 	</header>
 
 	<main>
-		<header>
-			<div class="view-title">
+		<header class="d-flex>
+			<div class="gap-lg-4">
 				<h1>Tablón</h1>
 				<p>Encuentra con quién practicar. 24 ofertas y 18 peticiones activas esta semana.</p>
 			</div>
-			<button type="button">+ Publicar intercambio</button>
+			<button type="button" class="gap-lg-4">+ Publicar intercambio</button>
 		</header>
 
 		<search>

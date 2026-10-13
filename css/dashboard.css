@@ -1,0 +1,10 @@
+.btn-logout {
+	--bs-btn-color: var(--color-muted);
+	--bs-btn-border-color: var(--color-border);
+	--bs-btn-hover-color: var(--color-danger);
+	--bs-btn-hover-bg: var(--color-danger-bg);
+	--bs-btn-hover-border-color: var(--color-danger);
+	--bs-btn-active-color: var(--color-danger);
+	--bs-btn-active-bg: var(--color-danger-bg);
+	--bs-btn-active-border-color: var(--color-danger);
+}
