@@ -8,3 +8,19 @@
 	--bs-btn-active-bg: var(--color-danger-bg);
 	--bs-btn-active-border-color: var(--color-danger);
 }
+
+.dot-offer {
+	color: var(--color-offer);
+	font-size: 0.6em;
+}
+
+
+.dot-request {
+	color: var(--color-request);
+	font-size: 0.6em;
+}
+
+#search-filter::placeholder {
+	color: var(--color-muted);
+	font-weight: 300;
+}
