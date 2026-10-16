@@ -20,11 +20,15 @@ export const level = [
 ]
 
 export const modality = [
-	{ value: "in-person", label: "En persona" },
+	{ value: "in-person", label: "Presencial" },
 	{ value: "both", label: "Ambas" },
-	{ value: "online", label: "online" }]
+	{ value: "online", label: "Online" }
+]
 
-
+export const type = [
+	{ value: "offer", label: "Ofrezco" },
+	{ value: "request", label: "Busco" }
+]
 export const exchanges = [
 	{
 		type: "offer",
@@ -67,7 +71,7 @@ export const exchanges = [
 		exchange: "es",
 		description: "Estudio japonés por mi cuenta y quiero practicar conversación básica con alguien nativo",
 		modality: "online",
-		availability: "Noche",
+		availability: "Noches",
 		user: { name: "Diego Ruiz", faculty: "Informática" }
 	},
 	{

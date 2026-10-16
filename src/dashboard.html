@@ -130,30 +130,35 @@
 
 		<template id="card-template">
 			<li class="col-12 col-md-6 col-lg-4">
-				<article class="card h-100">
+				<article class="card h-100 bg-white">
 					<header class="card-header">
-						<span class="badge" data-field="type"></span>
-						<time data-field="date"></time>
-						<h2>
+						<div class="d-flex justify-content-between mt-3">
+							<span class="badge" data-field="type"></span>
+							<time data-field="date" class="text-body-secondary small"></time>
+						</div>
+						<h2 class="mt-2">
 							<span data-field="language"></span>
-							<span data-field="level"></span>
+							<span data-field="level" class="ms-2"></span>
 						</h2>
 					</header>
 
 					<div class="card-body">
-						<p>A cambio de <strong data-field="exchange"></strong></p>
-						<p data-field="description"></p>
+						<p class="text-body-secondary small mb-0 pb-3 bi bi-arrow-left-right"> A cambio de <strong data-field="exchange" class="fw-bold fs-6 text-black"></strong></p>
+						<p data-field="description" class="me-1"></p>
 						<p>
-							<span data-field="modality"></span>
-							<span data-field="availability"></span>
+							<span data-field="modality" class="bi bi-geo-alt pe-3 text-body-secondary small"></span>
+							<span data-field="availability" class="bi bi-clock text-body-secondary small"></span>
 						</p>
 					</div>
 
-					<footer class="card-footer">
-						<span data-field="initials"></span>
-						<p data-field="user-name"></p>
-						<p data-field="faculty"></p>
-						<button type="button">Contactar</button>
+					<footer class="card-footer d-flex justify-content-between bg-white">
+						<div>
+							<span data-field="initials"></span>
+							<p data-field="user-name" class="mb-0"></p>
+							<p data-field="faculty" class="mb-0 text-body-secondary small"></p>
+						</div>
+						<button type="button" class="btn btn-contact btn-sm"
+								 style="--bs-btn-padding-y: .5rem; --bs-btn-padding-x: .5rem;"><i class="bi bi-chat-dots mx-2"></i>Contactar</button>
 					</footer>
 				</article>
 			</li>
