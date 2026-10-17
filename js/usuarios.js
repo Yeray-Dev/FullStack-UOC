@@ -1,11 +1,21 @@
 import { users, languages, roles } from "./datos.js"
 import { fillSelect, getLabel, getInitials, formatDate } from "./utils.js"
 
+const userForm = document.querySelector("#user-form")
+const nameInput = document.querySelector("#user-name")
+const emailInput = document.querySelector("#user-email")
+const emailFeedback = document.querySelector("#email-feedback")
+const passwordInput = document.querySelector("#user-password")
 const languageSelect = document.querySelector("#user-language")
 const roleSelect = document.querySelector("#user-role")
 const userCount = document.querySelector("#user-count")
 const userList = document.querySelector("#user-list")
 const rowTemplate = document.querySelector("#user-row-template")
+const toastTitle = document.querySelector("#toast-title")
+const toastMessage = document.querySelector("#toast-message")
+const userToast = bootstrap.Toast.getOrCreateInstance("#user-toast")
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 fillSelect(languageSelect, languages)
 fillSelect(roleSelect, roles)
@@ -34,5 +44,67 @@ function renderUsers(list) {
 	}
 	userCount.textContent = users.length
 }
+
+function getNextId() {
+	return Math.max(0, ...users.map(user => user.id)) + 1
+}
+
+function getToday() {
+	const today = new Date()
+	const month = String(today.getMonth() + 1).padStart(2, "0")
+	const day = String(today.getDate()).padStart(2, "0")
+	return `${today.getFullYear()}-${month}-${day}`
+}
+
+function showToast(title, message) {
+	toastTitle.textContent = title
+	toastMessage.textContent = message
+	userToast.show()
+}
+
+userForm.addEventListener("submit", event => {
+	event.preventDefault()
+
+	const name = nameInput.value.trim()
+	const email = emailInput.value.trim().toLowerCase()
+	const password = passwordInput.value
+
+	const nameOk = name !== ""
+	const emailOk = emailPattern.test(email)
+	const emailRepeated = users.some(user => user.email.toLowerCase() === email)
+	const passwordOk = password.length >= 8
+
+	if (emailRepeated)
+		emailFeedback.textContent = "Ya existe un usuario con este email."
+	else
+		emailFeedback.textContent = "Escribe un email válido."
+
+	nameInput.classList.toggle("is-invalid", !nameOk)
+	emailInput.classList.toggle("is-invalid", !emailOk || emailRepeated)
+	passwordInput.classList.toggle("is-invalid", !passwordOk)
+
+	if (!nameOk || !emailOk || emailRepeated || !passwordOk)
+		return
+
+	users.push({
+		id: getNextId(),
+		name,
+		email,
+		password,
+		faculty: "",
+		nativeLanguage: languageSelect.value,
+		role: roleSelect.value,
+		createdAt: getToday()
+	})
+
+	userForm.reset()
+	languageSelect.value = "es"
+	renderUsers(users)
+	showToast("Usuario creado", `${name} ya puede iniciar sesión.`)
+})
+
+userForm.addEventListener("input", event => {
+	event.target.classList.remove("is-invalid")
+})
 
 renderUsers(users)
