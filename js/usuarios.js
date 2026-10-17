@@ -14,6 +14,12 @@ const rowTemplate = document.querySelector("#user-row-template")
 const toastTitle = document.querySelector("#toast-title")
 const toastMessage = document.querySelector("#toast-message")
 const userToast = bootstrap.Toast.getOrCreateInstance("#user-toast")
+const deleteName = document.querySelector("#delete-name")
+const deleteEmail = document.querySelector("#delete-email")
+const confirmDeleteButton = document.querySelector("#confirm-delete")
+const deleteModal = bootstrap.Modal.getOrCreateInstance("#delete-modal")
+
+let pendingId = null
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
@@ -105,6 +111,30 @@ userForm.addEventListener("submit", event => {
 
 userForm.addEventListener("input", event => {
 	event.target.classList.remove("is-invalid")
+})
+
+userList.addEventListener("click", event => {
+	const button = event.target.closest('[data-action="delete"]')
+	if (!button)
+		return
+
+	const user = users.find(user => user.id === Number(button.dataset.id))
+	pendingId = user.id
+	deleteName.textContent = user.name
+	deleteEmail.textContent = user.email
+	deleteModal.show()
+})
+
+confirmDeleteButton.addEventListener("click", () => {
+	const index = users.findIndex(user => user.id === pendingId)
+	if (index === -1)
+		return
+
+	const [removed] = users.splice(index, 1)
+	pendingId = null
+	renderUsers(users)
+	deleteModal.hide()
+	showToast("Usuario eliminado", `${removed.name} ya no tiene acceso.`)
 })
 
 renderUsers(users)
