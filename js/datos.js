@@ -30,7 +30,7 @@ export const type = [
 	{ value: "request", label: "Busco" }
 ]
 export const exchanges = [
-	{
+	{	id: 1,
 		type: "offer",
 		date: "hace 2 h",
 		language: "de",
@@ -41,7 +41,7 @@ export const exchanges = [
 		availability: "Tardes",
 		user: { name: "Jonas Keller", faculty: "Ingeniería Industrial" }
 	},
-	{
+	{	id: 2,
 		type: "request",
 		date: "hace 3 h",
 		language: "en",
@@ -52,7 +52,7 @@ export const exchanges = [
 		availability: "Fines de semana",
 		user: { name: "Aina Puig", faculty: "Filología" }
 	},
-	{
+	{	id: 3,
 		type: "offer",
 		date: "hace 5 h",
 		language: "fr",
@@ -63,7 +63,7 @@ export const exchanges = [
 		availability: "Mañanas",
 		user: { name: "Camille Durand", faculty: "Bellas Artes" }
 	},
-	{
+	{	id: 4,
 		type: "request",
 		date: "Ayer",
 		language: "ja",
@@ -74,7 +74,7 @@ export const exchanges = [
 		availability: "Noches",
 		user: { name: "Diego Ruiz", faculty: "Informática" }
 	},
-	{
+	{	id: 5,
 		type: "offer",
 		date: "Ayer",
 		language: "it",
@@ -85,7 +85,7 @@ export const exchanges = [
 		availability: "Mediodía",
 		user: { name: "Marco Rossi", faculty: "Historia" }
 	},
-	{
+	{	id: 6,
 		type: "request",
 		date: "hace 2 dias",
 		language: "pt",
@@ -96,4 +96,11 @@ export const exchanges = [
 		availability: "Flexible",
 		user: { name: "Sofía López", faculty: "Económicas" }
 	},
+]
+
+export const users = [
+	{ id: 1, name: "Jonas Keller", email: "jonas@uni.es", password: "1234", faculty: "Ingeniería Industrial" },
+	{ id: 2, name: "Aina Puig", email: "aina@uni.es", password: "1234", faculty: "Filología" },
+	{ id: 3, name: "Camille Durand", email: "camille@uni.es", password: "1234", faculty: "Bellas Artes" },
+	{ id: 4, name: "Diego Ruiz", email: "diego@uni.es", password: "1234", faculty: "Informática" }
 ]
