@@ -18,6 +18,7 @@ const deleteName = document.querySelector("#delete-name")
 const deleteEmail = document.querySelector("#delete-email")
 const confirmDeleteButton = document.querySelector("#confirm-delete")
 const deleteModal = bootstrap.Modal.getOrCreateInstance("#delete-modal")
+const searchInput = document.querySelector("#user-search")
 
 let pendingId = null
 
@@ -49,6 +50,14 @@ function renderUsers(list) {
 		userList.append(createRow(user))
 	}
 	userCount.textContent = users.length
+}
+
+function getVisibleUsers() {
+	const text = searchInput.value.trim().toLowerCase()
+	return users.filter(user =>
+		user.name.toLowerCase().includes(text) ||
+		user.email.toLowerCase().includes(text)
+	)
 }
 
 function getNextId() {
@@ -105,7 +114,7 @@ userForm.addEventListener("submit", event => {
 
 	userForm.reset()
 	languageSelect.value = "es"
-	renderUsers(users)
+	renderUsers(getVisibleUsers())
 	showToast("Usuario creado", `${name} ya puede iniciar sesión.`)
 })
 
@@ -132,9 +141,13 @@ confirmDeleteButton.addEventListener("click", () => {
 
 	const [removed] = users.splice(index, 1)
 	pendingId = null
-	renderUsers(users)
+	renderUsers(getVisibleUsers())
 	deleteModal.hide()
 	showToast("Usuario eliminado", `${removed.name} ya no tiene acceso.`)
+})
+
+searchInput.addEventListener("input", () => {
+	renderUsers(getVisibleUsers())
 })
 
 renderUsers(users)
