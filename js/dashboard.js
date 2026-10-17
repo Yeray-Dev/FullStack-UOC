@@ -1,5 +1,5 @@
 import { languages, level, modality, exchanges, type } from "./datos.js"
-import { fillSelect } from "./utils.js"
+import { fillSelect, getLabel } from "./utils.js"
 
 const languageSelect = document.querySelector("#language-filter")
 const levelSelect = document.querySelector("#level-filter")
@@ -33,14 +33,6 @@ function renderCards(exchanges) {
 	for (const exchange of exchanges) {
 		cardList.append(createCard(exchange))
 	}
-}
-
-export function getLabel(list, value) {
-	const found = list.find(item => item.value === value)
-
-	if (found)
-		return found.label
-	return value
 }
 
 renderCards(exchanges)
