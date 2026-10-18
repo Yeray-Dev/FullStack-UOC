@@ -28,11 +28,32 @@ function createCard(exchange) {
 	return card
 }
 
-function renderCards(exchanges) {
+function renderCards(list) {
 	cardList.replaceChildren()
-	for (const exchange of exchanges) {
+	for (const exchange of list) {
 		cardList.append(createCard(exchange))
 	}
 }
 
-renderCards(exchanges)
+function filterExchanges() {
+	const typeFilter = document.querySelector('input[name="type"]:checked').value
+	const languageFilter = document.getElementById('language-filter')
+	const levelFilter = document.getElementById('level-filter')
+	const modeFilter = document.getElementById('modality-filter')
+
+	const exchangesFilter = exchanges.filter(card => {
+		const matchType = typeFilter === "all" || card.type === typeFilter
+		const matchLanguage = languageFilter.value === "all" || card.language === languageFilter.value
+		const matchLevel = levelFilter.value === "all" || card.level === levelFilter.value
+		const matchMode = modeFilter.value === "all" || card.modality === modeFilter.value
+
+		return matchType && matchLanguage &&
+			matchLevel && matchMode
+	})
+	renderCards(exchangesFilter)
+}
+
+filterExchanges()
+
+const formFilter = document.getElementById('form-filter')
+formFilter.addEventListener('input', filterExchanges)
