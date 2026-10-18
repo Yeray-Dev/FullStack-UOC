@@ -36,7 +36,8 @@ export const roles = [
 ]
 
 export const exchanges = [
-	{	id: 1,
+	{
+		id: 1,
 		type: "offer",
 		date: "hace 2 h",
 		language: "de",
@@ -47,7 +48,8 @@ export const exchanges = [
 		availability: "Tardes",
 		user: { name: "Jonas Keller", faculty: "Ingeniería Industrial" }
 	},
-	{	id: 2,
+	{
+		id: 2,
 		type: "request",
 		date: "hace 3 h",
 		language: "en",
@@ -58,7 +60,8 @@ export const exchanges = [
 		availability: "Fines de semana",
 		user: { name: "Aina Puig", faculty: "Filología" }
 	},
-	{	id: 3,
+	{
+		id: 3,
 		type: "offer",
 		date: "hace 5 h",
 		language: "fr",
@@ -69,7 +72,8 @@ export const exchanges = [
 		availability: "Mañanas",
 		user: { name: "Camille Durand", faculty: "Bellas Artes" }
 	},
-	{	id: 4,
+	{
+		id: 4,
 		type: "request",
 		date: "Ayer",
 		language: "ja",
@@ -80,7 +84,8 @@ export const exchanges = [
 		availability: "Noches",
 		user: { name: "Diego Ruiz", faculty: "Informática" }
 	},
-	{	id: 5,
+	{
+		id: 5,
 		type: "offer",
 		date: "Ayer",
 		language: "it",
@@ -91,7 +96,8 @@ export const exchanges = [
 		availability: "Mediodía",
 		user: { name: "Marco Rossi", faculty: "Historia" }
 	},
-	{	id: 6,
+	{
+		id: 6,
 		type: "request",
 		date: "hace 2 dias",
 		language: "pt",
