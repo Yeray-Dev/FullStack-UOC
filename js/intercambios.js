@@ -34,8 +34,7 @@ function renderTable() {
 
 		// Escribimos las celdas
 		row.innerHTML = `
-			<td><span class="badge ${isOffer ? "text-bg-success" : "text-bg-primary"}">${isOffer ? "Oferta" : "Petición"}</span></td>
-			<td>${getLabel(languages, e.language)}</td>
+			<td><span class="badge ${e.type}">${isOffer ? "Oferta" : "Petición"}</span></td>			
 			<td>${getLabel(level, e.level)}</td>
 			<td>${getLabel(languages, e.exchange)}</td>
 			<td>${getLabel(modality, e.modality)}</td>

@@ -36,3 +36,9 @@ export function formatDate(isoDate) {
 	const [year, month, day] = isoDate.split("-")
 	return `${day}/${month}/${year}`
 }
+
+// Calcula el siguiente número de id libre
+export function nextId(list) {
+	const ids = list.map(item => item.id) // Sacamos solo los ids
+	return Math.max(0, ...ids) + 1        // El mayor + 1 (el 0 por si la lista está vacía)
+}
