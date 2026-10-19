@@ -14,25 +14,25 @@ export function fillSelect(select, options) {
 	}
 }
 
-// Traduce un código a su nombre legible
-// Ejemplo: getLabel(languages, "de") devuelve "Alemán"
-export function getLabel(options, value) {
-	const option = options.find(o => o.value === value) // Buscamos el que coincide
-	return option ? option.label : value                // Si existe, su nombre; si no, el código
+export function getLabel(list, value) {
+	const found = list.find(item => item.value === value)
+
+	if (found)
+		return found.label
+	return value
 }
 
-// Saca las iniciales de un nombre
-// Ejemplo: getInitials("Jonas Keller") devuelve "JK"
+
 export function getInitials(name) {
 	return name
-		.split(" ")           // Cortamos por espacios → ["Jonas", "Keller"]
-		.map(word => word[0]) // Primera letra de cada palabra → ["J", "K"]
-		.join("")             // Las juntamos → "JK"
+		.split(" ")
+		.filter(word => word !== "")
+		.slice(0, 2)
+		.map(word => word[0].toUpperCase())
+		.join("")
 }
 
-// Calcula el siguiente número de id libre
-// Ejemplo: si los ids son 1, 2 y 6 → devuelve 7
-export function nextId(list) {
-	const ids = list.map(item => item.id) // Sacamos solo los ids
-	return Math.max(0, ...ids) + 1        // El mayor + 1 (el 0 por si la lista está vacía)
+export function formatDate(isoDate) {
+	const [year, month, day] = isoDate.split("-")
+	return `${day}/${month}/${year}`
 }

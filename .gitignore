@@ -8,11 +8,11 @@
 !*.html
 !*.css
 !*.js
+!*.svg
 !.gitignore
 !README.md
 
 # Descomentar si añades imágenes o iconos al proyecto
-# !*.svg
 # !*.png
 # !*.jpg
 # !*.webp
