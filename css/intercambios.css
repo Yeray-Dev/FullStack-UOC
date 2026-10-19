@@ -1,51 +1,53 @@
-/* Top navigation bar */
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 4rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #fff;
-  color: #1f2937;
-  border-bottom: 1px solid #e5e7eb;
-  box-shadow: 0 2px 8px rgb(15 23 42 / 6%);
+/* tarjetas con las esquinas igual que el resto de la web */
+.card {
+	--bs-card-border-radius: var(--radius-lg);
 }
 
-.topbar__brand {
-  color: inherit;
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
+/* etiquetas del formulario */
+#exchange-form .form-label {
+	font-size: 0.875rem;
+	font-weight: 600;
 }
 
-.topbar__nav {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
+#exchange-form ::placeholder {
+	color: var(--color-muted);
 }
 
-.topbar__nav a {
-  color: #4b5563;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 150ms ease;
+/* tabla */
+.exchanges-table {
+	--bs-table-bg: transparent;
 }
 
-.topbar__nav a:hover,
-.topbar__nav a:focus-visible {
-  color: #2563eb;
+.exchanges-table thead th {
+	color: var(--color-muted);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
 }
 
-@media (max-width: 600px) {
-  .topbar {
-    align-items: flex-start;
-    flex-direction: column;
-    padding: 1rem;
-  }
+.exchanges-table th:first-child,
+.exchanges-table td:first-child {
+	padding-left: 1.5rem;
+}
 
-  .topbar__nav {
-    flex-wrap: wrap;
-    gap: 0.75rem 1rem;
-  }
+.exchanges-table th:last-child,
+.exchanges-table td:last-child {
+	padding-right: 1.5rem;
+}
+
+/* etiquetas oferta / petición (los colores salen de .offer y .request de dashboard.css) */
+.exchanges-table .badge {
+	border-radius: var(--radius-pill);
+	padding: 0.45em 0.8em;
+}
+
+/* animación: las filas aparecen suavemente */
+@keyframes aparecer {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+
+.exchanges-table tbody tr {
+	animation: aparecer 0.4s;
 }
