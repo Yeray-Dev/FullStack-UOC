@@ -1,10 +1,16 @@
+// =====================================================
+// utils.js — Herramientas de ayuda que usan varias páginas
+// =====================================================
 
+// Llena una lista desplegable (<select>) con opciones
+// select  → la lista que queremos llenar
+// options → los datos, con forma { value, label }
 export function fillSelect(select, options) {
-	for (const arrOption of options) {
-		const newOption = document.createElement("option")
-		newOption.value = arrOption.value
-		newOption.textContent = arrOption.label
-		select.append(newOption);
+	for (const arrOption of options) {                     // Por cada dato...
+		const newOption = document.createElement("option") // Creamos una opción vacía
+		newOption.value = arrOption.value                  // Valor interno (ej: "de")
+		newOption.textContent = arrOption.label            // Texto visible (ej: "Alemán")
+		select.append(newOption)                           // La metemos en la lista
 	}
 }
 
