@@ -1,0 +1,51 @@
+/* Top navigation bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 6%);
+}
+
+.topbar__brand {
+  color: inherit;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.topbar__nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.topbar__nav a {
+  color: #4b5563;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.topbar__nav a:hover,
+.topbar__nav a:focus-visible {
+  color: #2563eb;
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .topbar__nav {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+}
