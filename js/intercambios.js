@@ -1,30 +1,18 @@
-/*
- * intercambios.js — Página de gestión de intercambios
- * Sirve para: ver todos los intercambios, publicar uno nuevo y eliminarlo
- */
 
-// Traemos los datos desde datos.js
 import { exchanges, users, languages, level, modality } from "./datos.js"
-// Traemos las herramientas de ayuda desde utils.js
 import { fillSelect, getLabel, nextId } from "./utils.js"
 
 
-// ===== 1. LOCALIZAR LAS PIEZAS DE LA PÁGINA =====
 const form = document.querySelector("#exchange-form")       // El formulario
 const tableBody = document.querySelector("#exchange-table") // Cuerpo de la tabla
 const counter = document.querySelector("#exchange-count")   // Número del título
-
-// Usuario "conectado" de prueba: el primero de la lista
 const currentUser = users[0]
 
-
-// ===== 2. LLENAR LAS LISTAS DESPLEGABLES =====
 fillSelect(document.querySelector("#language"), languages) // Idiomas
 fillSelect(document.querySelector("#level"), level)        // Niveles
 fillSelect(document.querySelector("#exchange"), languages) // Idiomas otra vez
 
 
-// ===== 3. DIBUJAR LA TABLA =====
 function renderTable() {
 	tableBody.replaceChildren() // Vaciamos la tabla
 
@@ -32,9 +20,9 @@ function renderTable() {
 		const isOffer = e.type === "offer"       // ¿Es una oferta?
 		const row = document.createElement("tr") // Fila nueva
 
-		// Escribimos las celdas
 		row.innerHTML = `
-			<td><span class="badge ${e.type}">${isOffer ? "Oferta" : "Petición"}</span></td>			
+			<td><span class="badge ${e.type}">${isOffer ? "Oferta" : "Petición"}</span></td>
+			<td>${getLabel(languages, e.language)}</td>
 			<td>${getLabel(level, e.level)}</td>
 			<td>${getLabel(languages, e.exchange)}</td>
 			<td>${getLabel(modality, e.modality)}</td>
@@ -47,16 +35,14 @@ function renderTable() {
 	counter.textContent = exchanges.length // Cuántos hay
 }
 
-renderTable() // Dibujamos al abrir la página
+renderTable()
 
 
-// ===== 4. PUBLICAR =====
 form.addEventListener("submit", event => {
-	event.preventDefault() // No recargar la página
+	event.preventDefault()
 
-	const f = form.elements // todos los campos de formulario
+	const f = form.elements
 
-	// Añadimos el nuevo intercambio al array
 	exchanges.push({
 		id: nextId(exchanges),                         // Número nuevo
 		type: f.type.value,                            // Oferta o petición
@@ -70,12 +56,11 @@ form.addEventListener("submit", event => {
 		user: { name: currentUser.name, faculty: currentUser.faculty } // Quién lo publica
 	})
 
-	renderTable() 
-	form.reset()  
+	renderTable()
+	form.reset()
 })
 
 
-// elimina un intercambio al pulsar el botón "Eliminar"
 tableBody.addEventListener("click", event => {
 	const button = event.target.closest("button[data-id]") // ¿Se pulsó un "Eliminar"?
 	if (!button) return                                    // Si no, no hacemos nada
