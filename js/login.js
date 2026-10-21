@@ -1,37 +1,37 @@
 import { users } from "./datos.js"
 
-
-const buttonEye = document.getElementById('toggle-password')
-const input = document.getElementById('password')
-const icon = document.getElementById('eye-icon')
-const btnEnter = document.getElementById("btn-enter")
+const loginForm = document.getElementById("login-form")
 const inputEmail = document.getElementById("email")
 const inputPass = document.getElementById("password")
+const buttonEye = document.getElementById("toggle-password")
+const eyeIcon = document.getElementById("eye-icon")
 
-
-buttonEye.addEventListener('click', () => {
-	const visible = input.type === 'text'
-	input.type = visible ? 'password' : 'text'
-	icon.classList.toggle('bi-eye', visible)
-	icon.classList.toggle('bi-eye-slash', !visible)
-	buttonEye.setAttribute('aria-label', visible ? 'Show password' : 'Hidden password')
+buttonEye.addEventListener("click", () => {
+	const visible = inputPass.type === "text"
+	inputPass.type = visible ? "password" : "text"
+	eyeIcon.classList.toggle("bi-eye", visible)
+	eyeIcon.classList.toggle("bi-eye-slash", !visible)
+	buttonEye.setAttribute("aria-label", visible ? "Mostrar contraseña" : "Ocultar contraseña")
 })
 
-btnEnter.addEventListener("click", () => {
-	const email = document.getElementById("email").value
-	const password = document.getElementById("password").value
-	const user = users.find(u => u.email === email && u.password === password)
+loginForm.addEventListener("submit", event => {
+	event.preventDefault()
+
+	inputEmail.classList.remove("is-invalid")
+	inputPass.classList.remove("is-invalid")
+
+	const email = inputEmail.value.trim().toLowerCase()
+	const password = inputPass.value
+	const user = users.find(u => u.email.toLowerCase() === email && u.password === password)
 
 	if (user) {
-		console.log("Hola")
 		window.location.href = "dashboard.html?email=" + encodeURIComponent(user.email)
 		return
 	}
-	const emailExists = users.some(u => u.email === email)
-	if (!emailExists) {
-		inputEmail.classList.add("is-invalid")
-	}
 
+	const emailExists = users.some(u => u.email.toLowerCase() === email)
+	if (!emailExists)
+		inputEmail.classList.add("is-invalid")
 	inputPass.classList.add("is-invalid")
 })
 

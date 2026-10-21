@@ -1,30 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<!-- configuración de la página -->
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Intercambios · Tándem</title>
 
-	<!-- fuentes -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
 
-	<!-- bootstrap e iconos -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css" rel="stylesheet">
 
-	<!-- estilos comunes y de la página -->
 	<link href="../css/base.css" rel="stylesheet">
 	<link href="../css/dashboard.css" rel="stylesheet">
 	<link href="../css/intercambios.css" rel="stylesheet">
 
-	<!-- lógica de la página -->
 	<script type="module" src="../js/intercambios.js"></script>
 </head>
 <body>
-	<!-- menú -->
 	<header class="navbar navbar-expand-lg sticky-top bg-white border-bottom">
 		<div class="container-fluid px-4">
 			<a class="navbar-brand d-flex align-items-center gap-2" href="dashboard.html">
@@ -70,22 +64,18 @@
 		</div>
 	</header>
 
-	<!-- contenido -->
 	<main class="px-4 pt-4 pb-5">
-		<!-- título -->
 		<header class="mb-4">
 			<h1 class="fs-2 mb-2">Intercambios</h1>
 			<p class="text-body-secondary small mb-0">Publica una oferta o una petición y gestiona las que ya tienes.</p>
 		</header>
 
 		<div class="row g-4 align-items-start">
-			<!-- formulario -->
 			<section class="col-12 col-lg-4">
 				<div class="card bg-white p-4">
 					<h2 class="fs-5 mb-3">Nuevo intercambio</h2>
 
 					<form id="exchange-form">
-						<!-- tipo -->
 						<div class="mb-3">
 							<p class="form-label">Tipo</p>
 							<div class="d-flex gap-2">
@@ -100,7 +90,6 @@
 							</div>
 						</div>
 
-						<!-- idioma y nivel -->
 						<div class="row g-3 mb-3">
 							<div class="col-6">
 								<label for="language" class="form-label">Idioma</label>
@@ -116,7 +105,6 @@
 							</div>
 						</div>
 
-						<!-- a cambio de -->
 						<div class="mb-3">
 							<label for="exchange" class="form-label">A cambio de</label>
 							<select id="exchange" name="exchange" class="form-select" required>
@@ -124,7 +112,6 @@
 							</select>
 						</div>
 
-						<!-- modalidad -->
 						<div class="mb-3">
 							<p class="form-label">Modalidad</p>
 							<div class="d-flex flex-wrap gap-2">
@@ -137,13 +124,11 @@
 							</div>
 						</div>
 
-						<!-- descripción -->
 						<div class="mb-4">
 							<label for="description" class="form-label">Descripción</label>
 							<textarea id="description" name="description" class="form-control" rows="3" placeholder="Cuéntale a los demás qué te gustaría hacer…" required></textarea>
 						</div>
 
-						<!-- enviar -->
 						<button type="submit" class="btn btn-dark w-100 py-2">
 							<i class="bi bi-send me-2" aria-hidden="true"></i>Publicar
 						</button>
@@ -151,16 +136,15 @@
 				</div>
 			</section>
 
-			<!-- tabla -->
 			<section class="col-12 col-lg-8">
-				<div class="card bg-white">
+				<div class="card bg-white ">
 					<header class="card-header bg-white py-3 px-4">
 						<h2 class="fs-5 mb-0">
 							Intercambios publicados
 							<span id="exchange-count" class="badge rounded-pill text-bg-light ms-1">0</span>
 						</h2>
 					</header>
-					<div class="table-responsive">
+					<div class=" table-responsive position-relative">
 						<table class="table align-middle mb-0 exchanges-table">
 							<thead>
 								<tr>
@@ -173,7 +157,6 @@
 									<th scope="col"><span class="visually-hidden">Acciones</span></th>
 								</tr>
 							</thead>
-							<!-- filas -->
 							<tbody id="exchange-table"></tbody>
 						</table>
 					</div>
@@ -182,7 +165,6 @@
 		</div>
 	</main>
 
-	<!-- javascript de bootstrap -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </body>
 </html>
