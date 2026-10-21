@@ -24,7 +24,7 @@ btnEnter.addEventListener("click", () => {
 
 	if (user) {
 		console.log("Hola")
-		window.location.href = "../src/dashboard.html"
+		window.location.href = "dashboard.html?email=" + encodeURIComponent(user.email)
 		return
 	}
 	const emailExists = users.some(u => u.email === email)
@@ -34,3 +34,4 @@ btnEnter.addEventListener("click", () => {
 
 	inputPass.classList.add("is-invalid")
 })
+

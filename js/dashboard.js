@@ -1,5 +1,7 @@
-import { languages, level, modality, exchanges, type } from "./datos.js"
-import { fillSelect, getLabel } from "./utils.js"
+import { languages, level, modality, exchanges, type, users } from "./datos.js"
+import { fillSelect, getLabel, showLoggedUser } from "./utils.js"
+
+showLoggedUser(users)
 
 const languageSelect = document.querySelector("#language-filter")
 const levelSelect = document.querySelector("#level-filter")

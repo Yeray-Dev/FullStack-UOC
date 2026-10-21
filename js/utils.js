@@ -1,10 +1,3 @@
-// =====================================================
-// utils.js — Herramientas de ayuda que usan varias páginas
-// =====================================================
-
-// Llena una lista desplegable (<select>) con opciones
-// select  → la lista que queremos llenar
-// options → los datos, con forma { value, label }
 export function fillSelect(select, options) {
 	for (const arrOption of options) {                     // Por cada dato...
 		const newOption = document.createElement("option") // Creamos una opción vacía
@@ -41,4 +34,19 @@ export function formatDate(isoDate) {
 export function nextId(list) {
 	const ids = list.map(item => item.id) // Sacamos solo los ids
 	return Math.max(0, ...ids) + 1        // El mayor + 1 (el 0 por si la lista está vacía)
+}
+
+
+export function showLoggedUser(users) {
+	const params = new URLSearchParams(window.location.search)
+	const email = (params.get("email") || "").toLowerCase()
+	const user = users.find(u => u.email.toLowerCase() === email)
+
+	if (!user)
+		return null
+
+	document.querySelector("#user-initials").textContent = getInitials(user.name)
+	document.querySelector("#user-email").textContent = user.email
+	document.querySelector("#user-chip").classList.remove("d-none")
+	return user
 }
