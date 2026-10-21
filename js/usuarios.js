@@ -1,5 +1,5 @@
 import { users, languages, roles } from "./datos.js"
-import { fillSelect, getLabel, getInitials, formatDate } from "./utils.js"
+import { fillSelect, getLabel, getInitials, formatDate, showLoggedUser } from "./utils.js"
 
 const userForm = document.querySelector("#user-form")
 const nameInput = document.querySelector("#user-name")
@@ -151,3 +151,4 @@ searchInput.addEventListener("input", () => {
 })
 
 renderUsers(users)
+showLoggedUser(users)

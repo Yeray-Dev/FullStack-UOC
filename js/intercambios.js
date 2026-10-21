@@ -1,6 +1,6 @@
 
 import { exchanges, users, languages, level, modality } from "./datos.js"
-import { fillSelect, getLabel, nextId } from "./utils.js"
+import { fillSelect, getLabel, nextId, showLoggedUser } from "./utils.js"
 
 
 const form = document.querySelector("#exchange-form")       // El formulario
@@ -71,3 +71,5 @@ tableBody.addEventListener("click", event => {
 	exchanges.splice(index, 1) // Lo quitamos del array
 	renderTable()              // Redibujamos
 })
+
+showLoggedUser(users)
